@@ -1,0 +1,78 @@
+.extra-col {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-0-5 {
+    @extend .extra-col;
+    flex: 0 0 4.16%;
+    max-width: 4.16%;
+}
+
+.col-1-5 {
+    @extend .extra-col;
+    flex: 0 0 12.5%;
+    max-width: 12.5%;
+}
+
+.col-2-5 {
+    @extend .extra-col;
+    flex: 0 0 20%;
+    max-width: 20%;
+}
+
+.col-3-5 {
+    @extend .extra-col;
+    flex: 0 0 29.16%;
+    max-width: 29.16%;
+}
+
+.col-4-5 {
+    @extend .extra-col;
+    flex: 0 0 37.49%;
+    max-width: 37.49%;
+}
+
+.col-5-5 {
+    @extend .extra-col;
+    flex: 0 0 45%;
+    max-width: 45%;
+}
+
+.col-6-5 {
+    @extend .extra-col;
+    flex: 0 0 54.16%;
+    max-width: 54.16%;
+}
+
+.col-7-5 {
+    @extend .extra-col;
+    flex: 0 0 62.49%;
+    max-width: 62.49%;
+}
+
+.col-8-5 {
+    @extend .extra-col;
+    flex: 0 0 70%;
+    max-width: 70%;
+}
+
+.col-9-5 {
+    @extend .extra-col;
+    flex: 0 0 79.16%;
+    max-width: 79.16%;
+}
+
+.col-10-5 {
+    @extend .extra-col;
+    flex: 0 0 87.49%;
+    max-width: 87.49%;
+}
+
+.col-11-5 {
+    @extend .extra-col;
+    flex: 0 0 95%;
+    max-width: 95%;
+}

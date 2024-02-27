@@ -1,0 +1,65 @@
+version: "3.4"
+
+services:
+  vue:
+    build:
+      context: .
+      dockerfile: ./vue-client/Dockerfile
+    image: kitap-oneri-client:latest
+    container_name: kitap-oneri-client
+    stdin_open: true
+    tty: true
+    restart: always
+    networks:
+      - nt-kitap-oneri
+    ports:
+      - "9777:80"
+    depends_on:
+      - expressjs
+
+  expressjs:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    image: kitap-oneri-api:latest
+    container_name: kitap-oneri-api
+    stdin_open: true
+    tty: true
+    restart: always
+    networks:
+      - nt-kitap-oneri
+    ports:
+      - "9778:3008"
+    depends_on:
+      - python
+
+  python:
+    build:
+      context: .
+      dockerfile: python/Dockerfile
+    image: kitap-oneri-python:latest
+    container_name: kitap-oneri-python
+    stdin_open: true
+    tty: true
+    restart: always
+    networks:
+      - nt-kitap-oneri
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0.30
+    container_name: kitap-oneri-mysql
+    restart: always
+    ports:
+      - "9779:3306"
+    networks:
+      - nt-kitap-oneri
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: kitap-oneri
+    command: --default-authentication-plugin=mysql_native_password
+
+networks:
+  nt-kitap-oneri:
+      driver: bridge
